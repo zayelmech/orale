@@ -2,12 +2,14 @@ package com.imecatro.myapplication
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.Marker
 import com.google.android.gms.maps.model.MarkerOptions
 import com.imecatro.myapplication.databinding.ActivityMapsBinding
 
@@ -48,7 +50,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         val lon = location.split(",")[1].toDouble()
         val sydney = LatLng(lat, lon)
         mMap.addMarker(MarkerOptions().position(sydney).title("Marker in Somewhere"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,12f))
 
+        mMap.setOnMarkerClickListener { p0 ->
+            Log.d("IDX", p0.id.toString())
+            true
+        }
     }
+
 }
+
+

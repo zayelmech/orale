@@ -64,6 +64,6 @@ dependencies {
     // rxjava call adapter
     implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
 
-    //coroutine
+    //coroutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
 }
